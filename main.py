@@ -12,7 +12,7 @@ from PyDictionary import PyDictionary
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.setWindowTitle("Translator")
+        self.setWindowTitle("Word Definition")
         self.initUI()
 
     def initUI(self):
@@ -34,17 +34,18 @@ class MainWindow(QMainWindow):
         font.setPointSize(26)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.label.setText("python_genius")
+        self.label.setText("Word Definition")
         
         
         self.lineEdit = QtWidgets.QLineEdit(self)
-        self.lineEdit.setGeometry(QtCore.QRect(10, 200, 1053, 93))
+        self.lineEdit.setGeometry(QtCore.QRect(30, 200, 1000, 93))
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit.setPlaceholderText("Enter Word")
         
         self.groupBox = QtWidgets.QGroupBox(self)
-        self.groupBox.setGeometry(QtCore.QRect(10, 350, 1053, 150))
+        self.groupBox.setGeometry(QtCore.QRect(30, 350, 1000, 150))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
@@ -54,14 +55,14 @@ class MainWindow(QMainWindow):
         
         
         self.label_2 = QtWidgets.QLabel(self)
-        self.label_2.setGeometry(QtCore.QRect(50, 430, 900, 50))
+        self.label_2.setGeometry(QtCore.QRect(50, 430, 950, 50))
         self.label_2.setObjectName("label_2")
-        self.label_2.setText("NONE")
+        self.label_2.setText("")
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         
         
         self.groupBox_2 = QtWidgets.QGroupBox(self)
-        self.groupBox_2.setGeometry(QtCore.QRect(10, 550, 1053, 400))
+        self.groupBox_2.setGeometry(QtCore.QRect(30, 550, 950, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
@@ -71,14 +72,14 @@ class MainWindow(QMainWindow):
         
         
         self.label_3 = QtWidgets.QLabel(self)
-        self.label_3.setGeometry(QtCore.QRect(50, 650, 900, 50))
+        self.label_3.setGeometry(QtCore.QRect(50, 600, 900, 300))
         self.label_3.setObjectName("label_3")
-        self.label_3.setText("NONE")
+        self.label_3.setText("")
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         
         
         self.groupBox_3 = QtWidgets.QGroupBox(self)
-        self.groupBox_3.setGeometry(QtCore.QRect(10, 1000, 1053, 400))
+        self.groupBox_3.setGeometry(QtCore.QRect(30, 1000, 1000, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
@@ -88,9 +89,9 @@ class MainWindow(QMainWindow):
         
         
         self.label_4 = QtWidgets.QLabel(self)
-        self.label_4.setGeometry(QtCore.QRect(50, 1100, 900, 50))
+        self.label_4.setGeometry(QtCore.QRect(50, 1000, 900, 300))
         self.label_4.setObjectName("label_4")
-        self.label_4.setText("NONE")
+        self.label_4.setText("")
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
 
 
@@ -109,8 +110,8 @@ class MainWindow(QMainWindow):
         translated_verb = self.translate_func(verb).text
         
         self.label_2.setText(translated_word)
-        self.label_3.setText(textwrap.fill(translated_noun, 50))
-        self.label_4.setText(textwrap.fill(translated_verb, 50))
+        self.label_3.setText(textwrap.fill(translated_noun, 40))
+        self.label_4.setText(textwrap.fill(translated_verb, 40))
 
 
     def definition(self, word):
