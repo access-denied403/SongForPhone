@@ -1,10 +1,13 @@
 import sys
 import os
+import textwrap
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import (QCoreApplication, QObject, QRunnable, QThread,
                     QThreadPool, pyqtSignal)
-
+from googletrans import Translator
+from PyDictionary import PyDictionary
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -93,10 +96,42 @@ class MainWindow(QMainWindow):
 
     def pressed(self):
         word = self.lineEdit.text()
-        self.label_2.setText(word)
-        self.label_3.setText(word)
-        self.label_4.setText(word)
+        noun, verb = self.definition(word)
+        try:
+            noun = str(*noun[0])
+            verb = str(*verb[0])
+        except:
+            noun = str(noun[0])
+            verb = str(verb[0])
+
+        translated_word = self.translate_func(word).text
+        translated_noun = self.translate_func(noun).text
+        translated_verb = self.translate_func(verb).text
         
+        self.label_2.setText(translated_word)
+        self.label_3.setText(textwrap.fill(translated_noun, 50))
+        self.label_4.setText(textwrap.fill(translated_verb, 50))
+
+
+    def definition(self, word):
+        nouns, verbs = [], []
+        dictionary = PyDictionary()
+        word = self.translate_func(word).text
+        my_meaning = dictionary.meaning(word)
+        try:
+            if my_meaning['Noun']: nouns.append(my_meaning['Noun'][0])
+            if my_meaning['Verb']: verbs.append(my_meaning['Verb'][0])
+        except:
+            nouns.append("No Data")
+            verbs.append("No Data")
+        return nouns, verbs
+
+
+    def translate_func(self, words):
+        translator = Translator(service_urls=["translate.google.com"])
+        translation = translator.translate(words, dest="en")
+        return translation
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
