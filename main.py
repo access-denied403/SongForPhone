@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         
         
         self.groupBox_2 = QtWidgets.QGroupBox(self)
-        self.groupBox_2.setGeometry(QtCore.QRect(30, 550, 950, 400))
+        self.groupBox_2.setGeometry(QtCore.QRect(30, 550, 1000, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
