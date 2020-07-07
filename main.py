@@ -84,6 +84,13 @@ class MainWindow(QMainWindow):
         self.label_4.setGeometry(QtCore.QRect(160, 60, 21, 16))
         self.label_4.setObjectName("label_4")
         self.label_4.setText("--")
+
+    def pressed(self):
+        word = self.lineEdit.text()
+        self.label_2.setText(word)
+        self.label_3.setText(word)
+        self.label_4.setText(word)
+        
         
 
 if __name__ == "__main__":
