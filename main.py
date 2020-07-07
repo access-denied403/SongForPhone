@@ -21,76 +21,81 @@ class MainWindow(QMainWindow):
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.pushButton.setText("Translate")
+        self.pushButton.clicked.connect(self.pressed)
         
         
         self.label = QtWidgets.QLabel(self)
-        self.label.setGeometry(QtCore.QRect(350, 10, 483, 183))
+        self.label.setGeometry(QtCore.QRect(300, 10, 483, 183))
         font = QtGui.QFont()
         font.setFamily("Javanese Text")
         font.setPointSize(26)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.label.setText("Translator")
+        self.label.setText("python_genius")
         
         
         self.lineEdit = QtWidgets.QLineEdit(self)
         self.lineEdit.setGeometry(QtCore.QRect(10, 200, 1053, 93))
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         
         self.groupBox = QtWidgets.QGroupBox(self)
         self.groupBox.setGeometry(QtCore.QRect(10, 350, 1053, 150))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
-        font.setPointSize(14)
+        font.setPointSize(18)
         self.groupBox.setFont(font)
         self.groupBox.setObjectName("groupBox")
         self.groupBox.setTitle("Translation:")
         
         
         self.label_2 = QtWidgets.QLabel(self)
-        self.label_2.setGeometry(QtCore.QRect(160, 30, 21, 16))
+        self.label_2.setGeometry(QtCore.QRect(50, 430, 900, 50))
         self.label_2.setObjectName("label_2")
-        self.label_2.setText("--")
+        self.label_2.setText("NONE")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         
         
         self.groupBox_2 = QtWidgets.QGroupBox(self)
         self.groupBox_2.setGeometry(QtCore.QRect(10, 550, 1053, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
-        font.setPointSize(14)
+        font.setPointSize(18)
         self.groupBox_2.setFont(font)
         self.groupBox_2.setObjectName("groupBox_2")
-        self.groupBox_2.setTitle("Verb:")
+        self.groupBox_2.setTitle("Noun:")
         
         
         self.label_3 = QtWidgets.QLabel(self)
-        self.label_3.setGeometry(QtCore.QRect(160, 60, 21, 16))
+        self.label_3.setGeometry(QtCore.QRect(50, 650, 900, 50))
         self.label_3.setObjectName("label_3")
-        self.label_3.setText("--")
+        self.label_3.setText("NONE")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         
         
         self.groupBox_3 = QtWidgets.QGroupBox(self)
         self.groupBox_3.setGeometry(QtCore.QRect(10, 1000, 1053, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
-        font.setPointSize(14)
+        font.setPointSize(18)
         self.groupBox_3.setFont(font)
         self.groupBox_3.setObjectName("groupBox_3")
         self.groupBox_3.setTitle("Verb:")
         
         
         self.label_4 = QtWidgets.QLabel(self)
-        self.label_4.setGeometry(QtCore.QRect(160, 60, 21, 16))
+        self.label_4.setGeometry(QtCore.QRect(50, 1100, 900, 50))
         self.label_4.setObjectName("label_4")
-        self.label_4.setText("--")
+        self.label_4.setText("NONE")
+        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+
 
     def pressed(self):
         word = self.lineEdit.text()
         self.label_2.setText(word)
         self.label_3.setText(word)
         self.label_4.setText(word)
-        
         
 
 if __name__ == "__main__":
