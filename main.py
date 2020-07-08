@@ -1,13 +1,11 @@
 import sys
-import os
 import textwrap
-
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5.QtCore import (QCoreApplication, QObject, QRunnable, QThread,
-                    QThreadPool, pyqtSignal)
 from googletrans import Translator
 from PyDictionary import PyDictionary
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtCore import QCoreApplication, QObject, QRunnable 
+from PyQt5.QtCore import QThread, QThreadPool, pyqtSignal
 
 class MainWindow(QMainWindow):
     def __init__(self):
