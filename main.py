@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QCoreApplication, QObject, QRunnable 
 from PyQt5.QtCore import QThread, QThreadPool, pyqtSignal
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -14,26 +15,24 @@ class MainWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.pushButton = QtWidgets.QPushButton(self)
-        self.pushButton.setGeometry(QtCore.QRect(260, 1860, 543, 183))
+        self.translate_Button = QtWidgets.QPushButton(self)
+        self.translate_Button.setGeometry(QtCore.QRect(260, 1860, 543, 183))
         font = QtGui.QFont()
         font.setFamily("Impact")
         font.setPointSize(20)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton.setText("Translate")
-        self.pushButton.clicked.connect(self.pressed)
+        self.translate_Button.setFont(font)
+        self.translate_Button.setObjectName("translate_Button")
+        self.translate_Button.setText("Translate")
+        self.translate_Button.clicked.connect(self.pressed)
         
-        
-        self.label = QtWidgets.QLabel(self)
-        self.label.setGeometry(QtCore.QRect(300, 10, 483, 183))
+        self.top_label = QtWidgets.QLabel(self)
+        self.top_label.setGeometry(QtCore.QRect(300, 10, 483, 183))
         font = QtGui.QFont()
         font.setFamily("Javanese Text")
         font.setPointSize(26)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label.setText("Word Definition")
-        
+        self.top_label.setFont(font)
+        self.top_label.setObjectName("top_label")
+        self.top_label.setText("Word Definition")
         
         self.lineEdit = QtWidgets.QLineEdit(self)
         self.lineEdit.setGeometry(QtCore.QRect(30, 200, 1000, 93))
@@ -42,55 +41,53 @@ class MainWindow(QMainWindow):
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setPlaceholderText("Enter Word")
         
-        self.groupBox = QtWidgets.QGroupBox(self)
-        self.groupBox.setGeometry(QtCore.QRect(30, 350, 1000, 150))
+
+        self.translation_field = QtWidgets.QGroupBox(self)
+        self.translation_field.setGeometry(QtCore.QRect(30, 350, 1000, 150))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
-        self.groupBox.setFont(font)
-        self.groupBox.setObjectName("groupBox")
-        self.groupBox.setTitle("Translation:")
+        self.translation_field.setFont(font)
+        self.translation_field.setObjectName("translation_field")
+        self.translation_field.setTitle("Translation:")
         
+        self.translation_label = QtWidgets.QLabel(self)
+        self.translation_label.setGeometry(QtCore.QRect(50, 430, 950, 50))
+        self.translation_label.setObjectName("translation_label")
+        self.translation_label.setText("")
+        self.translation_label.setAlignment(QtCore.Qt.AlignCenter)
         
-        self.label_2 = QtWidgets.QLabel(self)
-        self.label_2.setGeometry(QtCore.QRect(50, 430, 950, 50))
-        self.label_2.setObjectName("label_2")
-        self.label_2.setText("")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        
-        
-        self.groupBox_2 = QtWidgets.QGroupBox(self)
-        self.groupBox_2.setGeometry(QtCore.QRect(30, 550, 1000, 400))
+
+        self.noun_field = QtWidgets.QGroupBox(self)
+        self.noun_field.setGeometry(QtCore.QRect(30, 550, 1000, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
-        self.groupBox_2.setFont(font)
-        self.groupBox_2.setObjectName("groupBox_2")
-        self.groupBox_2.setTitle("Noun:")
+        self.noun_field.setFont(font)
+        self.noun_field.setObjectName("noun_field")
+        self.noun_field.setTitle("Noun:")
+        
+        self.noun_label = QtWidgets.QLabel(self)
+        self.noun_label.setGeometry(QtCore.QRect(50, 600, 900, 300))
+        self.noun_label.setObjectName("noun_label")
+        self.noun_label.setText("")
+        self.noun_label.setAlignment(QtCore.Qt.AlignCenter)
         
         
-        self.label_3 = QtWidgets.QLabel(self)
-        self.label_3.setGeometry(QtCore.QRect(50, 600, 900, 300))
-        self.label_3.setObjectName("label_3")
-        self.label_3.setText("")
-        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
-        
-        
-        self.groupBox_3 = QtWidgets.QGroupBox(self)
-        self.groupBox_3.setGeometry(QtCore.QRect(30, 1000, 1000, 400))
+        self.verb_field = QtWidgets.QGroupBox(self)
+        self.verb_field.setGeometry(QtCore.QRect(30, 1000, 1000, 400))
         font = QtGui.QFont()
         font.setFamily("Lucida Sans Unicode")
         font.setPointSize(18)
-        self.groupBox_3.setFont(font)
-        self.groupBox_3.setObjectName("groupBox_3")
-        self.groupBox_3.setTitle("Verb:")
+        self.verb_field.setFont(font)
+        self.verb_field.setObjectName("verb_field")
+        self.verb_field.setTitle("Verb:")
         
-        
-        self.label_4 = QtWidgets.QLabel(self)
-        self.label_4.setGeometry(QtCore.QRect(50, 1000, 900, 300))
-        self.label_4.setObjectName("label_4")
-        self.label_4.setText("")
-        self.label_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.verb_label = QtWidgets.QLabel(self)
+        self.verb_label.setGeometry(QtCore.QRect(50, 1000, 900, 300))
+        self.verb_label.setObjectName("verb_label")
+        self.verb_label.setText("")
+        self.verb_label.setAlignment(QtCore.Qt.AlignCenter)
 
 
     def pressed(self):
@@ -107,9 +104,9 @@ class MainWindow(QMainWindow):
         translated_noun = self.translate_func(noun).text
         translated_verb = self.translate_func(verb).text
         
-        self.label_2.setText(translated_word)
-        self.label_3.setText(textwrap.fill(translated_noun, 40))
-        self.label_4.setText(textwrap.fill(translated_verb, 40))
+        self.translation_label.setText(translated_word)
+        self.noun_label.setText(textwrap.fill(translated_noun, 40))
+        self.verb_label.setText(textwrap.fill(translated_verb, 40))
 
 
     def definition(self, word):
